@@ -1,0 +1,123 @@
+[gd_scene load_steps=10 format=3 uid="uid://bc38gxw76qgpt"]
+
+[ext_resource type="Script" path="res://Scripts/Systems/Combat/CombatManager.gd" id="1_oqg00"]
+[ext_resource type="Script" path="res://Scripts/Systems/Combat/GameStateMachine.gd" id="2_47inl"]
+[ext_resource type="Script" path="res://Fabs/Systems/Combat/CreateQueueState.gd" id="3_ljs6d"]
+[ext_resource type="Script" path="res://Fabs/Systems/Combat/StartTurnHandledState.gd" id="3_uf5wo"]
+[ext_resource type="PackedScene" uid="uid://b4q25dfygmes7" path="res://Fabs/Characters/player.tscn" id="4_awkna"]
+[ext_resource type="PackedScene" uid="uid://cmdqs5gwemhl7" path="res://Fabs/Characters/enemy_base.tscn" id="5_u8844"]
+[ext_resource type="Script" path="res://Scripts/Systems/Combat/TurnManager.gd" id="7_bxepv"]
+
+[sub_resource type="Gradient" id="Gradient_c1i32"]
+colors = PackedColorArray(0.466181, 0.466181, 0.466181, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fpro8"]
+gradient = SubResource("Gradient_c1i32")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(1, 1)
+
+[node name="CombatManager" type="Node"]
+script = ExtResource("1_oqg00")
+
+[node name="GameStateMachine" type="Node" parent="." node_paths=PackedStringArray("StartingState", "CreateQueueState", "StartTurnState")]
+script = ExtResource("2_47inl")
+StartingState = NodePath("CreateQueueState")
+CreateQueueState = NodePath("CreateQueueState")
+StartTurnState = NodePath("StartTurnHandledState")
+
+[node name="CreateQueueState" type="Node" parent="GameStateMachine"]
+script = ExtResource("3_ljs6d")
+
+[node name="Node" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
+position = Vector2(296, 205)
+texture = SubResource("GradientTexture2D_fpro8")
+
+[node name="player" parent="GameStateMachine/CreateQueueState/Node" instance=ExtResource("4_awkna")]
+
+[node name="Node2" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
+position = Vector2(294, 340)
+texture = SubResource("GradientTexture2D_fpro8")
+
+[node name="player" parent="GameStateMachine/CreateQueueState/Node2" node_paths=PackedStringArray("Hero_Attributes", "Attributes") instance=ExtResource("4_awkna")]
+Hero_Attributes = NodePath("../../Node/player/HeroAttributes")
+Attributes = NodePath("../../Node/player/Attributes")
+
+[node name="Node3" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
+position = Vector2(294, 470)
+texture = SubResource("GradientTexture2D_fpro8")
+
+[node name="player" parent="GameStateMachine/CreateQueueState/Node3" node_paths=PackedStringArray("Hero_Attributes", "Attributes") instance=ExtResource("4_awkna")]
+Hero_Attributes = NodePath("../../Node/player/HeroAttributes")
+Attributes = NodePath("../../Node/player/Attributes")
+
+[node name="Node4" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
+position = Vector2(125, 205)
+texture = SubResource("GradientTexture2D_fpro8")
+
+[node name="player" parent="GameStateMachine/CreateQueueState/Node4" instance=ExtResource("4_awkna")]
+
+[node name="Node5" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
+position = Vector2(123, 340)
+texture = SubResource("GradientTexture2D_fpro8")
+
+[node name="Node6" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
+position = Vector2(123, 470)
+texture = SubResource("GradientTexture2D_fpro8")
+
+[node name="Node7" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
+position = Vector2(998, 205)
+texture = SubResource("GradientTexture2D_fpro8")
+
+[node name="EnemyBase" parent="GameStateMachine/CreateQueueState/Node7" instance=ExtResource("5_u8844")]
+scale = Vector2(-5, 5)
+
+[node name="Node8" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
+position = Vector2(996, 340)
+texture = SubResource("GradientTexture2D_fpro8")
+
+[node name="Node9" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
+position = Vector2(996, 470)
+texture = SubResource("GradientTexture2D_fpro8")
+
+[node name="EnemyBase" parent="GameStateMachine/CreateQueueState/Node9" node_paths=PackedStringArray("Enemy_Attributes", "Attributes") instance=ExtResource("5_u8844")]
+scale = Vector2(-5, 5)
+Enemy_Attributes = NodePath("../../Node7/EnemyBase/EnemyAttributes")
+Attributes = NodePath("../../Node7/EnemyBase/Attributes")
+
+[node name="Node10" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
+position = Vector2(827, 205)
+texture = SubResource("GradientTexture2D_fpro8")
+
+[node name="EnemyBase" parent="GameStateMachine/CreateQueueState/Node10" instance=ExtResource("5_u8844")]
+scale = Vector2(-5, 5)
+
+[node name="Node11" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
+position = Vector2(825, 340)
+texture = SubResource("GradientTexture2D_fpro8")
+
+[node name="EnemyBase" parent="GameStateMachine/CreateQueueState/Node11" node_paths=PackedStringArray("Enemy_Attributes", "Attributes") instance=ExtResource("5_u8844")]
+scale = Vector2(-5, 5)
+Enemy_Attributes = NodePath("../../Node7/EnemyBase/EnemyAttributes")
+Attributes = NodePath("../../Node7/EnemyBase/Attributes")
+
+[node name="Node12" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
+position = Vector2(825, 470)
+texture = SubResource("GradientTexture2D_fpro8")
+
+[node name="StartTurnHandledState" type="Node" parent="GameStateMachine"]
+script = ExtResource("3_uf5wo")
+
+[node name="CommandQueue" type="Node" parent="."]
+
+[node name="TurnManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_bxepv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TimeLineQueue" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 346.0
+offset_top = 38.0
+offset_right = 770.0
+offset_bottom = 46.0

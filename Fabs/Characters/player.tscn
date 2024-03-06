@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4q25dfygmes7"]
+[gd_scene load_steps=5 format=3 uid="uid://b4q25dfygmes7"]
 
 [ext_resource type="Texture2D" uid="uid://bwwfi0rckc8pq" path="res://Graphics/Characters/2 Owlet_Monster/Owlet_Monster.png" id="1_750ok"]
+[ext_resource type="Script" path="res://Scripts/Character/playerBase.gd" id="1_q8asn"]
 [ext_resource type="Script" path="res://Scripts/Attributes/AttributesBase.gd" id="1_rth34"]
 [ext_resource type="Script" path="res://Scripts/Attributes/HeroesAttributes.gd" id="3_r466x"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("Hero_Attributes", "Attributes")]
 scale = Vector2(5, 5)
+script = ExtResource("1_q8asn")
+Hero_Attributes = NodePath("HeroAttributes")
+NameCharacter = "Nak"
+IconCharacter = ExtResource("1_750ok")
+Attributes = NodePath("Attributes")
 
-[node name="OwletMonster" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
 texture = ExtResource("1_750ok")
 

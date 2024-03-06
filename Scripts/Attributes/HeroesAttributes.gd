@@ -1,3 +1,6 @@
+extends Node
+class_name HeroAttributes
+
 @export var Strenght : float = 20.0 
 @export var Dexterity : float = 20.0 
 @export var Vitality : float = 20.0 
