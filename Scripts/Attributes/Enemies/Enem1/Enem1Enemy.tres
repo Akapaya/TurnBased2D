@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="EnemiesAttributes" load_steps=2 format=3 uid="uid://cgxolhplfpmvv"]
+
+[ext_resource type="Script" path="res://Scripts/Attributes/EnemiesAttributes.gd" id="1_un8fm"]
+
+[resource]
+script = ExtResource("1_un8fm")
+type = 1

@@ -1,4 +1,4 @@
-extends Node
+extends Resource
 class_name HeroAttributes
 
 @export var Strenght : float = 20.0 

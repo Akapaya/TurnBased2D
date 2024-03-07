@@ -1,9 +1,4 @@
-extends Node
+extends Resource
 class_name EnemiesAttributes
 
-enum Type {
-	NonElite,
-	Elite
-}
-
-@export var type : Type = Type.NonElite
+@export var type = Constants.Type.Elite

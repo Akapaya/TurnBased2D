@@ -38,17 +38,13 @@ texture = SubResource("GradientTexture2D_fpro8")
 position = Vector2(294, 340)
 texture = SubResource("GradientTexture2D_fpro8")
 
-[node name="player" parent="GameStateMachine/CreateQueueState/Node2" node_paths=PackedStringArray("Hero_Attributes", "Attributes") instance=ExtResource("4_awkna")]
-Hero_Attributes = NodePath("../../Node/player/HeroAttributes")
-Attributes = NodePath("../../Node/player/Attributes")
+[node name="player" parent="GameStateMachine/CreateQueueState/Node2" instance=ExtResource("4_awkna")]
 
 [node name="Node3" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
 position = Vector2(294, 470)
 texture = SubResource("GradientTexture2D_fpro8")
 
-[node name="player" parent="GameStateMachine/CreateQueueState/Node3" node_paths=PackedStringArray("Hero_Attributes", "Attributes") instance=ExtResource("4_awkna")]
-Hero_Attributes = NodePath("../../Node/player/HeroAttributes")
-Attributes = NodePath("../../Node/player/Attributes")
+[node name="player" parent="GameStateMachine/CreateQueueState/Node3" instance=ExtResource("4_awkna")]
 
 [node name="Node4" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
 position = Vector2(125, 205)
@@ -79,10 +75,8 @@ texture = SubResource("GradientTexture2D_fpro8")
 position = Vector2(996, 470)
 texture = SubResource("GradientTexture2D_fpro8")
 
-[node name="EnemyBase" parent="GameStateMachine/CreateQueueState/Node9" node_paths=PackedStringArray("Enemy_Attributes", "Attributes") instance=ExtResource("5_u8844")]
+[node name="EnemyBase" parent="GameStateMachine/CreateQueueState/Node9" instance=ExtResource("5_u8844")]
 scale = Vector2(-5, 5)
-Enemy_Attributes = NodePath("../../Node7/EnemyBase/EnemyAttributes")
-Attributes = NodePath("../../Node7/EnemyBase/Attributes")
 
 [node name="Node10" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
 position = Vector2(827, 205)
@@ -95,10 +89,8 @@ scale = Vector2(-5, 5)
 position = Vector2(825, 340)
 texture = SubResource("GradientTexture2D_fpro8")
 
-[node name="EnemyBase" parent="GameStateMachine/CreateQueueState/Node11" node_paths=PackedStringArray("Enemy_Attributes", "Attributes") instance=ExtResource("5_u8844")]
+[node name="EnemyBase" parent="GameStateMachine/CreateQueueState/Node11" instance=ExtResource("5_u8844")]
 scale = Vector2(-5, 5)
-Enemy_Attributes = NodePath("../../Node7/EnemyBase/EnemyAttributes")
-Attributes = NodePath("../../Node7/EnemyBase/Attributes")
 
 [node name="Node12" type="Sprite2D" parent="GameStateMachine/CreateQueueState"]
 position = Vector2(825, 470)

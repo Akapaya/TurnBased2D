@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="AttributesBase" load_steps=2 format=3 uid="uid://dknyylhgtachc"]
+
+[ext_resource type="Script" path="res://Scripts/Attributes/AttributesBase.gd" id="1_ljbnn"]
+
+[resource]
+script = ExtResource("1_ljbnn")
+Health = 100.0
+MaxHealth = 100.0
+Energy = 100.0
+MaxEnergy = 100.0
+Stun = 0.0
+MaxStun = 100.0
+ArmorPhysics = 100.0
+ArmorEnergy = 100.0
+FitnessRate = 20.0
+BlockRate = 20.0
+EvasionRate = 20.0
+AccuracyRate = 20.0
+CriticalHitRate = 20.0
+CriticalDamageRate = 20.0
+PhysicsPenetrationRate = 20.0
+EnergyPenetrationRate = 20.0

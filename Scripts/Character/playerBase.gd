@@ -1,3 +1,6 @@
 extends CharacterBase
 
-@export var Hero_Attributes: HeroAttributes
+@export var Hero_Attributes: Resource
+
+func _ready():
+	Attributes = Attributes.duplicate()

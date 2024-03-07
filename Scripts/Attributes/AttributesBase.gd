@@ -4,7 +4,7 @@
 ##
 
 class_name AttributesBase
-extends Node
+extends Resource
 
 @export var Health : float = 100 ##It's related to currently life of charater
 @export var MaxHealth : float = 100

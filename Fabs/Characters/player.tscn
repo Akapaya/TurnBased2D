@@ -1,24 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4q25dfygmes7"]
+[gd_scene load_steps=6 format=3 uid="uid://b4q25dfygmes7"]
 
 [ext_resource type="Texture2D" uid="uid://bwwfi0rckc8pq" path="res://Graphics/Characters/2 Owlet_Monster/Owlet_Monster.png" id="1_750ok"]
 [ext_resource type="Script" path="res://Scripts/Character/playerBase.gd" id="1_q8asn"]
-[ext_resource type="Script" path="res://Scripts/Attributes/AttributesBase.gd" id="1_rth34"]
-[ext_resource type="Script" path="res://Scripts/Attributes/HeroesAttributes.gd" id="3_r466x"]
+[ext_resource type="Resource" uid="uid://sodr6tx681xp" path="res://Scripts/Attributes/Char1/Char1Hero.tres" id="2_h2ay2"]
+[ext_resource type="Resource" uid="uid://gyfd616xax8d" path="res://Scripts/Attributes/Char1/Char1.tres" id="3_7buip"]
+[ext_resource type="Script" path="res://Scripts/Composites/CompositeEffect.gd" id="5_jip07"]
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("Hero_Attributes", "Attributes")]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("compositeEffect")]
 scale = Vector2(5, 5)
 script = ExtResource("1_q8asn")
-Hero_Attributes = NodePath("HeroAttributes")
+Hero_Attributes = ExtResource("2_h2ay2")
 NameCharacter = "Nak"
 IconCharacter = ExtResource("1_750ok")
-Attributes = NodePath("Attributes")
+Attributes = ExtResource("3_7buip")
+compositeEffect = NodePath("CompositeEffect")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
 texture = ExtResource("1_750ok")
 
-[node name="Attributes" type="Node" parent="."]
-script = ExtResource("1_rth34")
-
-[node name="HeroAttributes" type="Node" parent="."]
-script = ExtResource("3_r466x")
+[node name="CompositeEffect" type="Node" parent="." node_paths=PackedStringArray("characterBase")]
+script = ExtResource("5_jip07")
+characterBase = NodePath("..")

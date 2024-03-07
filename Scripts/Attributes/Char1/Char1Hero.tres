@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="HeroAttributes" load_steps=2 format=3 uid="uid://sodr6tx681xp"]
+
+[ext_resource type="Script" path="res://Scripts/Attributes/HeroesAttributes.gd" id="1_xs4fb"]
+
+[resource]
+script = ExtResource("1_xs4fb")
+Strenght = 20.0
+Dexterity = 20.0
+Vitality = 20.0
+Intelligence = 20.0
+Will = 20.0
+Agility = 20.0

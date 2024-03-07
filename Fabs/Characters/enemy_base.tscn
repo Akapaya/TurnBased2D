@@ -1,25 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmdqs5gwemhl7"]
+[gd_scene load_steps=6 format=3 uid="uid://cmdqs5gwemhl7"]
 
 [ext_resource type="Texture2D" uid="uid://cdrcdqi5gqw2l" path="res://Graphics/Characters/3 Dude_Monster/Dude_Monster.png" id="1_a8601"]
-[ext_resource type="Script" path="res://Scripts/Attributes/AttributesBase.gd" id="1_di77e"]
 [ext_resource type="Script" path="res://Scripts/Character/enemy_base.gd" id="1_otv88"]
-[ext_resource type="Script" path="res://Scripts/Attributes/EnemiesAttributes.gd" id="3_r48xw"]
+[ext_resource type="Resource" uid="uid://cgxolhplfpmvv" path="res://Scripts/Attributes/Enemies/Enem1/Enem1Enemy.tres" id="2_gyacr"]
+[ext_resource type="Resource" uid="uid://dknyylhgtachc" path="res://Scripts/Attributes/Enemies/Enem1/Enem1.tres" id="4_oicec"]
+[ext_resource type="Script" path="res://Scripts/Composites/CompositeEffect.gd" id="5_pcxps"]
 
-[node name="EnemyBase" type="CharacterBody2D" node_paths=PackedStringArray("Enemy_Attributes", "Attributes")]
+[node name="EnemyBase" type="CharacterBody2D" node_paths=PackedStringArray("compositeEffect")]
 scale = Vector2(5, 5)
 script = ExtResource("1_otv88")
-Enemy_Attributes = NodePath("EnemyAttributes")
+Enemy_Attributes = ExtResource("2_gyacr")
 NameCharacter = "Flox"
 IconCharacter = ExtResource("1_a8601")
-Attributes = NodePath("Attributes")
+Attributes = ExtResource("4_oicec")
+compositeEffect = NodePath("CompositeEffect")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
 texture = ExtResource("1_a8601")
 
-[node name="Attributes" type="Node" parent="."]
-script = ExtResource("1_di77e")
-FitnessRate = 40.0
-
-[node name="EnemyAttributes" type="Node" parent="."]
-script = ExtResource("3_r48xw")
+[node name="CompositeEffect" type="Node" parent="." node_paths=PackedStringArray("characterBase")]
+script = ExtResource("5_pcxps")
+characterBase = NodePath("..")
